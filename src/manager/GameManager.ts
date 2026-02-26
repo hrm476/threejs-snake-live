@@ -307,8 +307,12 @@ export default class GameManager {
     const manager = new THREE.LoadingManager();
     const textureLoader = new THREE.TextureLoader(manager);
 
-    const wasd = textureLoader.load("/wasd.png");
-    const arrows = textureLoader.load("/arrows.png");
+    const wasd = textureLoader.load(
+      `${import.meta.env.BASE_URL}imgs/wasd.png`
+    );
+    const arrows = textureLoader.load(
+      `${import.meta.env.BASE_URL}imgs/arrows.png`
+    );
 
     const wasdGeometry = new THREE.PlaneGeometry(3.5, 2);
     wasdGeometry.rotateX(-Math.PI * 0.5);

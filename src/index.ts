@@ -5,6 +5,9 @@ import palettesManager, { PaletteConfig } from "./manager/PalettesManager";
 import GameManager from "./manager/GameManager";
 import { isMobile } from "./utils";
 
+const assetUrl = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export class SnakeLive {
   scene!: THREE.Scene;
   camera!: THREE.PerspectiveCamera;
@@ -166,7 +169,9 @@ export class SnakeLive {
     scene.fog?.color.set(palette.fogColor);
     (<THREE.Color>scene.background)!.set(palette.fogColor);
     gameManager.applyPalette();
-    btnPlayImg.src = `/btn-play-bg-${palettesManager.paletteName}.png`;
+    btnPlayImg.src = assetUrl(
+      `imgs/btn-play-bg-${palettesManager.paletteName}.png`
+    );
   };
 
   startRender() {
