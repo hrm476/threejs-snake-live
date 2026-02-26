@@ -485,7 +485,7 @@ export default class GameManager {
     const geometry = new TextGeometry(`${this.score}`, {
       font: font,
       size: 3,
-      height: 1,
+      depth: 1,
       curveSegments: 12,
       bevelEnabled: true,
       bevelThickness: 0.1,

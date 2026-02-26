@@ -26,7 +26,12 @@ const DOWN = new Vector3(0, 0, 1);
 const LEFT = new Vector3(-1, 0, 0);
 const RIGHT = new Vector3(1, 0, 0);
 
-export default class Snake extends EventDispatcher {
+interface SnakeEventMap {
+  updated: {};
+  die: {};
+}
+
+export default class Snake extends EventDispatcher<SnakeEventMap> {
   scene!: Scene;
   resolution!: Vector2;
   direction: Vector3 = RIGHT;

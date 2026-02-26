@@ -13,7 +13,11 @@ export interface PaletteConfig {
 
 export type PalettesColorType = "green" | "orange" | "lilac";
 
-class PalettesManager extends EventDispatcher {
+interface PalettesManagerEventMap {
+  change: {};
+}
+
+class PalettesManager extends EventDispatcher<PalettesManagerEventMap> {
   selectors = document.querySelectorAll(
     "[data-color]"
   ) as NodeListOf<HTMLLIElement>;
@@ -93,7 +97,7 @@ class PalettesManager extends EventDispatcher {
 
         this.storagePalette(paletteName);
         this.selectedPalette &&
-          this.dispatchEvent({ type: "change" } as never);
+          this.dispatchEvent({ type: "change" });
       })
     );
   }
